@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JV Partner Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #faf8f5;
+            --ink: #1a1a1a;
+            --forest: #1e3a2f;
+            --gold: #c9a962;
+            --gold-light: #e8d5a8;
+            --muted: #8b8680;
+            --blush: #f4e8e1;
+            --card: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--forest);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        .client-list {
+            list-style: none;
+        }
+        .client-card {
+            background: var(--card);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .client-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .client-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .client-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 4px;
+        }
+        .client-offer {
+            font-size: 14px;
+            color: var(--muted);
+        }
+        .client-date {
+            font-size: 12px;
+            color: var(--gold);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Partner Reports</h1>
+        <p class="subtitle">JV outreach tools for active launches</p>
+        <ul class="client-list">
+            <li class="client-card">
+                <a href="penelope.html">
+                    <div class="client-name">Penelope Jane Smith</div>
+                    <div class="client-offer">Financial Freedom 101</div>
+                    <div class="client-date">Launch: Feb 10, 2026</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
