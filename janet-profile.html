@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Profile - Janet Bray Attwood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8f9fa;
+            color: #1a1a2e;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1.5rem;
+        }
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .back-link {
+            color: #a0a0b0;
+            font-size: 0.8125rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .back-link:hover {
+            color: white;
+        }
+        .header h1 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .header-subtitle {
+            color: #a0a0b0;
+            font-size: 0.875rem;
+        }
+
+        /* Main */
+        .main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Client Card */
+        .client-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .client-avatar {
+            width: 56px;
+            height: 56px;
+            background: #1a1a2e;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e8c547;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .client-info h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        .client-company {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        .client-title {
+            color: #1a1a2e;
+            font-size: 0.8125rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Section */
+        .section {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 0.875rem 1.25rem;
+            border-bottom: 1px solid #e5e5e5;
+            background: #fafafa;
+        }
+        .section-title {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #4b5563;
+        }
+        .section-body {
+            padding: 1.25rem;
+        }
+
+        /* Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 480px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .info-item label {
+            display: block;
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9ca3af;
+            margin-bottom: 0.25rem;
+        }
+        .info-item .value {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: #1a1a2e;
+        }
+        .info-item .sub {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .info-item .highlight {
+            color: #e8c547;
+        }
+        .info-item a {
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Commission boxes */
+        .commission-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+        @media (max-width: 600px) {
+            .commission-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .commission-box {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        .commission-box.highlight {
+            background: #1a1a2e;
+        }
+        .commission-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        .commission-box.highlight .commission-value {
+            color: #e8c547;
+        }
+        .commission-label {
+            font-size: 0.6875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        .commission-box.highlight .commission-label {
+            color: #a0a0b0;
+        }
+
+        /* Earnings */
+        .earnings-row {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .earnings-row:last-child {
+            border-bottom: none;
+        }
+        .earnings-row.featured {
+            background: #fafafa;
+        }
+        .earnings-label {
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+        .earnings-calc {
+            font-size: 0.8125rem;
+            color: #6b7280;
+        }
+        .earnings-total {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        /* Text content */
+        .text-block {
+            font-size: 0.875rem;
+            color: #374151;
+        }
+        .text-block p {
+            margin-bottom: 1rem;
+        }
+        .text-block p:last-child {
+            margin-bottom: 0;
+        }
+        .text-block strong {
+            color: #1a1a2e;
+        }
+        .text-block ul {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+        .text-block li {
+            padding: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .text-block li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #9ca3af;
+        }
+
+        /* Key message */
+        .key-message {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .key-message-label {
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a0a0b0;
+            margin-bottom: 0.5rem;
+        }
+        .key-message-text {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #e8c547;
+        }
+
+        /* Partners list */
+        .partner-item {
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+        .partner-item strong {
+            color: #1a1a2e;
+        }
+        .partner-item span {
+            color: #6b7280;
+        }
+
+        /* FAQs */
+        .faq-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            padding: 0.875rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            background: #fafafa;
+        }
+        .faq-toggle {
+            color: #9ca3af;
+            font-size: 0.75rem;
+        }
+        .faq-answer {
+            display: none;
+            padding: 0 1.25rem 0.875rem 1.25rem;
+            font-size: 0.8125rem;
+            color: #6b7280;
+        }
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+        .faq-item.open .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Contact footer */
+        .contact-footer {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            font-size: 0.8125rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        .contact-footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        .contact-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+        .footer a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tier boxes */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            .tier-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .tier-box {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .tier-box.highlight {
+            background: #1a1a2e;
+            color: white;
+        }
+        .tier-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .tier-box.highlight .tier-name {
+            color: #e8c547;
+        }
+        .tier-desc {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .tier-box.highlight .tier-desc {
+            color: #a0a0b0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">&larr; Back to Clients</a>
+            <h1>Client Profile</h1>
+            <p class="header-subtitle">Reference document for partner outreach</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Client Card -->
+        <div class="client-card">
+            <div class="client-avatar">JA</div>
+            <div class="client-info">
+                <h2>Janet Bray Attwood</h2>
+                <div class="client-company">The Passion Test</div>
+                <div class="client-title">NY Times Bestselling Author & Co-Creator of The Passion Test</div>
+            </div>
+        </div>
+
+        <!-- The Offer -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">The Offer</span>
+            </div>
+            <div class="section-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Current Program</label>
+                        <div class="value">Becoming International</div>
+                        <div class="sub">3-tier expansion program</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Program Focus</label>
+                        <div class="value highlight">Global Expansion</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Target Audience</label>
+                        <div class="value">Coaches & Entrepreneurs</div>
+                        <div class="sub">Ready to go international</div>
+                    </div>
+                    <div class="info-item">
+                        <label>Network Reach</label>
+                        <div class="value">65+ Countries</div>
+                        <div class="sub">5,000+ certified facilitators</div>
+                    </div>
+                </div>
+
+                <!-- Program Tiers -->
+                <div class="tier-grid">
+                    <div class="tier-box">
+                        <div class="tier-name">Tier 1: Wannabe</div>
+                        <div class="tier-desc">Just starting, want to expand globally</div>
+                    </div>
+                    <div class="tier-box highlight">
+                        <div class="tier-name">Tier 2: 1st Level</div>
+                        <div class="tier-desc">Established, ready to scale internationally</div>
+                    </div>
+                    <div class="tier-box">
+                        <div class="tier-name">Tier 3: 2nd Level</div>
+                        <div class="tier-desc">Advanced, building global presence</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;">
+                    <div class="info-item">
+                        <label>Main Website</label>
+                        <a href="https://thepassiontest.com" target="_blank">thepassiontest.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Janet Offers Partners -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">What Janet Offers Partners</span>
+            </div>
+            <div class="section-body">
+                <div class="commission-grid">
+                    <div class="commission-box">
+                        <div class="commission-value">5,000+</div>
+                        <div class="commission-label">certified facilitators</div>
+                    </div>
+                    <div class="commission-box">
+                        <div class="commission-value">65+</div>
+                        <div class="commission-label">countries reached</div>
+                    </div>
+                    <div class="commission-box">
+                        <div class="commission-value">NYT</div>
+                        <div class="commission-label">bestseller credibility</div>
+                    </div>
+                    <div class="commission-box highlight">
+                        <div class="commission-value">ENGAGED</div>
+                        <div class="commission-label">transformation seekers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Message -->
+        <div class="key-message">
+            <div class="key-message-label">Key Positioning Message</div>
+            <div class="key-message-text">"You teach them how to BUILD their business.<br>Janet teaches them how to take it GLOBAL."</div>
+        </div>
+
+        <!-- About Janet -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">About Janet</span>
+            </div>
+            <div class="section-body text-block">
+                <p><strong>The Story:</strong> Janet Bray Attwood is the co-author of the New York Times bestseller "The Passion Test: The Effortless Path to Discovering Your Life Purpose." She has dedicated her life to helping people discover and live their passions, building a global movement with thousands of certified facilitators across 65+ countries.</p>
+
+                <p><strong>Shared Stage With:</strong></p>
+                <ul>
+                    <li>The Dalai Lama</li>
+                    <li>Sir Richard Branson</li>
+                    <li>Jack Canfield (Chicken Soup for the Soul)</li>
+                    <li>T. Harv Eker</li>
+                    <li>Mark Victor Hansen</li>
+                    <li>Marianne Williamson</li>
+                </ul>
+
+                <p><strong>Credentials:</strong></p>
+                <ul>
+                    <li>NY Times Bestselling Author</li>
+                    <li>Co-Creator of The Passion Test</li>
+                    <li>Global network of 5,000+ certified facilitators</li>
+                    <li>Featured in major media worldwide</li>
+                    <li>Transformational leader for 20+ years</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ideal Partner Profile -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Ideal Partner Profile</span>
+            </div>
+            <div class="section-body text-block">
+                <p>Coaches, entrepreneurs, and transformation leaders who serve <strong>purpose-driven individuals ready to expand their impact globally</strong>.</p>
+                <p style="color: #6b7280;">Their clients learn to build their business — Janet teaches them to take it international.</p>
+                <p><strong>Perfect For:</strong></p>
+                <ul>
+                    <li>Business coaches ready to offer clients global expansion pathways</li>
+                    <li>Transformation leaders with audiences seeking purpose and impact</li>
+                    <li>Personal development educators with engaged communities</li>
+                    <li>Speakers and authors looking for collaborative opportunities</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- What Janet Is Seeking -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">What Janet Is Seeking</span>
+            </div>
+            <div class="section-body text-block">
+                <p><strong>JV Partnership Goals:</strong></p>
+                <ul>
+                    <li>Partners with audiences of coaches and entrepreneurs</li>
+                    <li>Speakers for joint virtual events and summits</li>
+                    <li>Podcast hosts in personal development and business spaces</li>
+                    <li>Complementary program owners for cross-promotion</li>
+                    <li>Influencers in transformation and purpose-driven business</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Program Focus:</strong> Becoming International — helping coaches and entrepreneurs expand their reach globally through Janet's proven international network and systems.</p>
+            </div>
+        </div>
+
+        <!-- FAQs -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-title">Partner FAQs</span>
+            </div>
+            <div style="padding: 0;">
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        What makes The Passion Test different?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">The Passion Test is a proven methodology used by millions worldwide. It's simple, powerful, and has been validated by top thought leaders including the Dalai Lama. Janet's global network provides real international expansion opportunities.</div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        Who is the ideal referral?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Coaches and entrepreneurs at any stage who want to expand internationally. The 3-tier Becoming International program meets them where they are — whether just starting or ready to scale globally.</div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        What's the partnership structure?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Janet offers various collaboration options: joint webinars, podcast appearances, summit speaking, cross-promotion, and affiliate partnerships. Flexible to fit partner needs.</div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-question">
+                        What results have partners seen?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Partners gain access to Janet's engaged audience and global network. Many have seen significant list growth and new client acquisition through collaborative events.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-footer">
+            <div>Questions or updates?</div>
+            <a href="mailto:chelsea@sharkmarketing.co">chelsea@sharkmarketing.co</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Client Profile — Janet Bray Attwood &middot; <a href="index.html">View All Clients &rarr;</a>
+    </footer>
+</body>
+</html>
